@@ -37,8 +37,8 @@ function App() {
     });
   };
 
-  const removeFromCart = (id) => { 
-    setCart((prevCart) => prevCart.filter((item) => item.id !== id)); 
+  const removeItem = (id) => {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
   };
 
   return (
@@ -49,7 +49,7 @@ function App() {
           <ProductCard key={product.id} product={product} cart={cart} addToCart={addToCart} updateQuantity={updateQuantity} />
         ))}
       </div>
-      {cartOpen && <CartModal cart={cart} closeModal={() => setCartOpen(false)} removeFromCart={removeFromCart} />}
+      {cartOpen && <CartModal cart={cart} closeModal={() => setCartOpen(false)} removeItem={removeItem} />}
     </div>
   );
 }
